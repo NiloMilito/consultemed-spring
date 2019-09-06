@@ -45,7 +45,7 @@ public class ConsultaService implements IConsultaService{
 
 	@Override
 	@Transactional(readOnly=true)
-	public List<Consulta> listar() {
+	public List<Consulta> listar(Consulta filtro) {
 		return this.repository.findAll();
 	}
 
@@ -101,6 +101,11 @@ public class ConsultaService implements IConsultaService{
 			}									
 		}
 		return qtde;
+	}
+
+	@Override
+	public List<Consulta> listar() {
+		return this.repository.findAll();
 	}
 
 }

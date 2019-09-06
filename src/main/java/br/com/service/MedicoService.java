@@ -40,6 +40,10 @@ public class MedicoService implements IMedicoService{
 	}
 
 	@Override
+	public List<Medico> listar(Medico filtro) {	
+		return this.repository.findAll();
+	}
+	
 	public List<Medico> listar() {	
 		return this.repository.findAll();
 	}

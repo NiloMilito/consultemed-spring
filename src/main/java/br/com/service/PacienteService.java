@@ -39,6 +39,11 @@ public class PacienteService implements IPacienteService{
 	}
 
 	@Override
+	public List<Paciente> listar(Paciente filtro){		
+		return this.repository.findAll();
+	}
+	
+	@Override
 	public List<Paciente> listar(){		
 		return this.repository.findAll();
 	}

@@ -15,7 +15,7 @@ import lombok.Setter;
 
 @NoArgsConstructor
 @Entity
-@Table(name="contatos")
+@Table(name="tb_contatos")
 @Getter
 @Setter
 public class Contato implements Serializable {

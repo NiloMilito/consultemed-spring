@@ -14,24 +14,31 @@
                             <a href="#"><i class="fa fa-edit fa-fw"></i> Cadastros<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li sec:authorize="hasAuthority('ADMIN')">
-                                    <a th:href="@{/contatos}">Contatos</a>
+                                    <a th:href="@{/contatos}"><i class="fa fa-users text-aqua"></i> Contatos</a>                                   
                                 </li>
-                                 <li sec:authorize="hasAuthority('ADMIN')">
+                                 <!-- <li sec:authorize="hasAuthority('ADMIN')">
                                     <a th:href="@{/contatos}">Agendamentos</a>
-                                </li>
-                                
+                                </li>                                 -->
                                 <li sec:authorize="hasAuthority('ADMIN')">
-                                    <a th:href="@{/contatos}">Pacientes</a>
-                                </li>
-                                
+                                    <a th:href="@{/contatos}"><i class="fa fa-male text-aqua"></i> Pacientes</a>                                
+                                </li>                                
                                 <li sec:authorize="hasAuthority('ADMIN')">
-                                    <a th:href="@{/contatos}">Usuários</a>
+                                    <a th:href="@{/medicos}"><i class="fa fa-user-md text-aqua"></i> Médicos</a>                                   
                                 </li>
                                 <li sec:authorize="hasAuthority('ADMIN')">
-                                    <a th:href="@{/outros/morris}">Morris</a>
+                                    <a th:href="@{/consultas}"><i class="fa fa-stethoscope text-aqua"></i> Consultas</a>                                    
+                                </li>
+                                <li sec:authorize="hasAuthority('ADMIN')">
+                                    <a th:href="@{/funcionarios}"><i class="fa fa-male text-aqua"></i> Funcionários</a>                                    
+                                </li>
+                                <li sec:authorize="hasAuthority('ADMIN')">
+                                    <a th:href="@{/usuarios}"><i class="fa fa-users text-aqua"></i> Usuários</a>                                   
+                                </li>
+                                <li sec:authorize="hasAuthority('ADMIN')">
+                                    <a th:href="@{/outros/morris}"><i class="fa fa-circle-o text-aqua"></i> Morris</a>
                                 </li>
                                  <li sec:authorize="hasAuthority('ADMIN')">
-                                    <a th:href="@{/outros/flot}">Float</a>
+                                    <a th:href="@{/outros/flot}"><i class="fa fa-circle-o text-aqua"></i> Float</a>
                                 </li>
                             </ul>
                         </li>

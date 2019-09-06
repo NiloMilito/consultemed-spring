@@ -25,9 +25,9 @@ import br.com.service.ContatoService;
 @RequestMapping("/contatos")
 public class ContatosController {
 	
-	private static final String PAGES_CONTATO_NOVO_CONTATO = "pages/contato/novo_contato";
+	private static final String PAGES_CONTATO_NOVO_CONTATO = "pages/contatos/novo_contato";
 
-	private static final String PAGES_CONTATO_CONTATOS = "pages/contato/contatos";
+	private static final String PAGES_CONTATO_CONTATOS = "pages/contatos/contatos";
 	
 	@Autowired
 	private ContatoService service;
@@ -64,7 +64,7 @@ public class ContatosController {
 	@GetMapping("/novo")
 	public ModelAndView novo(Contato contato) {
 		ModelAndView mv = new ModelAndView(PAGES_CONTATO_NOVO_CONTATO);
-		mv.addObject("contato", contato);
+		mv.addObject("contatos", contato);
 		return mv;
 	}
 	

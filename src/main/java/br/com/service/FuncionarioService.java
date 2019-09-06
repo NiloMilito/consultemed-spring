@@ -38,9 +38,15 @@ public class FuncionarioService implements IFuncionarioService{
 	}
 
 	@Override
+	public List<Funcionario> listar(Funcionario filtro) {
+		return this.repository.findAll();
+	}
+	
+	@Override
 	public List<Funcionario> listar() {
 		return this.repository.findAll();
 	}
+
 
 	@Override
 	public Funcionario buscarFuncionarioPorEmail(String email) {

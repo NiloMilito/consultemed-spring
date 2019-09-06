@@ -7,6 +7,7 @@ package br.com.model.dto;
  * @author carlosbarbosagomesfilho
  *
  */
+
 public class ContatoPesquisaDTO {
 
 	private String nome;

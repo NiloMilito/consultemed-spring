@@ -13,6 +13,8 @@ public interface IGenericService <T, ID extends Serializable>{
 	
 	public T buscar(Long id);
 	
+	public List <T> listar(T filtro);
+	
 	public List <T> listar();
 	
 }
