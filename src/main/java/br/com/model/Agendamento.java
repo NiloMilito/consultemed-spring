@@ -26,8 +26,5 @@ public class Agendamento extends AbstractEntity<Long> {
 	
 	@OneToOne
 	private Consulta consulta;
-	
-	@OneToOne
-	private Paciente paciente;		
-
+			
 }

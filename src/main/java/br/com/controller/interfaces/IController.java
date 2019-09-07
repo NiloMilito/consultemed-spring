@@ -13,7 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 public interface IController <T, ID extends Serializable>{
-		
+	
 	public ModelAndView salvar(@Valid T object, BindingResult result, Model model, RedirectAttributes attributes);
 	
 	public ModelAndView novo(T novo);

@@ -7,6 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -15,6 +19,7 @@ import br.com.interfaces.IConsultaService;
 import br.com.model.Consulta;
 
 @Controller
+@RequestMapping("/consultas")
 public class ConsultaController implements IController<Consulta, Serializable>{
 	
 	private static final String PAGES_CONSULTAS_NOVA_CONSULTAS = "pages/consultas/nova_consultas";
@@ -24,6 +29,7 @@ public class ConsultaController implements IController<Consulta, Serializable>{
 	private IConsultaService service;
 
 	@Override
+	@PostMapping("/save")	
 	public ModelAndView salvar(Consulta consulta, BindingResult result, Model model, 
 							   RedirectAttributes attributes) {
 		ModelAndView mv = new ModelAndView("redirect:/consultas");
@@ -37,6 +43,7 @@ public class ConsultaController implements IController<Consulta, Serializable>{
 	}
 
 	@Override
+	@GetMapping("/novo")
 	public ModelAndView novo(Consulta novo) {
 		ModelAndView mv = new ModelAndView(PAGES_CONSULTAS_NOVA_CONSULTAS);
 		mv.addObject("consultas", novo);
@@ -44,12 +51,14 @@ public class ConsultaController implements IController<Consulta, Serializable>{
 	}
 
 	@Override
+	@GetMapping("/edit/{id}")
 	public ModelAndView edit(Long id) {
 		Consulta consulta = this.service.buscar(id); 
 		return novo(consulta);
 	}
 
 	@Override
+	@GetMapping("/delete/{id}")
 	public ModelAndView excluir(Long id, RedirectAttributes attributes) {
 		ModelAndView mv = new ModelAndView("redirect:/consultas");
 		this.service.remover(id);
@@ -58,7 +67,8 @@ public class ConsultaController implements IController<Consulta, Serializable>{
 	}
 
 	@Override
-	public ModelAndView listar(Consulta filtro) {
+	@GetMapping
+	public ModelAndView listar(@ModelAttribute("filtro") Consulta filtro) {
 		ModelAndView mv = new ModelAndView(PAGES_CONSULTAS_CONSULTAS);		
 		
 		if(filtro != null) {

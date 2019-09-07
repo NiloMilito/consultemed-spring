@@ -48,5 +48,4 @@ public class Consulta extends AbstractEntity<Long> {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "consulta")
 	private List<Exame> exames = new ArrayList<>();
 	
-
 }

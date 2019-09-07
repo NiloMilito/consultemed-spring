@@ -7,6 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.thymeleaf.util.StringUtils;
@@ -16,6 +20,7 @@ import br.com.interfaces.IFuncionarioService;
 import br.com.model.Funcionario;
 
 @Controller
+@RequestMapping("/funcionarios")
 public class FuncionarioController implements IController<Funcionario, Serializable>{
 	
 	private static final String PAGES_FUNCIONARIOS_NOVO_FUNCIONARIOS = "pages/funcionarios/novo_funcionario";
@@ -25,6 +30,7 @@ public class FuncionarioController implements IController<Funcionario, Serializa
 	private IFuncionarioService service;
 
 	@Override
+	@PostMapping("/save")	
 	public ModelAndView salvar(Funcionario funcionario, BindingResult result, Model model, 
 							   RedirectAttributes attributes) {
 		ModelAndView mv = new ModelAndView("redirect:/funcionarios");
@@ -38,6 +44,7 @@ public class FuncionarioController implements IController<Funcionario, Serializa
 	}
 
 	@Override
+	@GetMapping("/novo")
 	public ModelAndView novo(Funcionario novo) {
 		ModelAndView mv = new ModelAndView(PAGES_FUNCIONARIOS_NOVO_FUNCIONARIOS);
 		mv.addObject("funcionarios", novo);
@@ -45,12 +52,14 @@ public class FuncionarioController implements IController<Funcionario, Serializa
 	}
 
 	@Override
+	@GetMapping("/edit/{id}")
 	public ModelAndView edit(Long id) {
 		Funcionario funcionario = this.service.buscar(id); 
 		return novo(funcionario);
 	}
 
 	@Override
+	@GetMapping("/delete/{id}")
 	public ModelAndView excluir(Long id, RedirectAttributes attributes) {
 		ModelAndView mv = new ModelAndView("redirect:/pacientes");
 		this.service.remover(id);
@@ -59,7 +68,8 @@ public class FuncionarioController implements IController<Funcionario, Serializa
 	}
 
 	@Override
-	public ModelAndView listar(Funcionario filtro) {
+	@GetMapping
+	public ModelAndView listar(@ModelAttribute("filtro") Funcionario filtro) {
 		ModelAndView mv = new ModelAndView(PAGES_FUNCIONARIOS_FUNCIONARIOS);		
 		
 		if(!StringUtils.isEmpty(filtro.getNome())) {

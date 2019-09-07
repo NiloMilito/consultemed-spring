@@ -16,11 +16,11 @@
                                 <li sec:authorize="hasAuthority('ADMIN')">
                                     <a th:href="@{/contatos}"><i class="fa fa-users text-aqua"></i> Contatos</a>                                   
                                 </li>
-                                 <!-- <li sec:authorize="hasAuthority('ADMIN')">
-                                    <a th:href="@{/contatos}">Agendamentos</a>
-                                </li>                                 -->
+                                  <li sec:authorize="hasAuthority('ADMIN')">
+                                    <a th:href="@{/agendamentos}">Agendamentos</a>
+                                </li>                                 
                                 <li sec:authorize="hasAuthority('ADMIN')">
-                                    <a th:href="@{/contatos}"><i class="fa fa-male text-aqua"></i> Pacientes</a>                                
+                                    <a th:href="@{/pacientes}"><i class="fa fa-male text-aqua"></i> Pacientes</a>                                
                                 </li>                                
                                 <li sec:authorize="hasAuthority('ADMIN')">
                                     <a th:href="@{/medicos}"><i class="fa fa-user-md text-aqua"></i> Médicos</a>                                   
