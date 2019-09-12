@@ -17,7 +17,7 @@
                                     <a th:href="@{/contatos}"><i class="fa fa-users text-aqua"></i> Contatos</a>                                   
                                 </li>
                                   <li sec:authorize="hasAuthority('ADMIN')">
-                                    <a th:href="@{/agendamentos}">Agendamentos</a>
+                                    <a th:href="@{/agendamentos}"><i class="fa fa-calendar text-aqua"></i> Agendamentos</a>
                                 </li>                                 
                                 <li sec:authorize="hasAuthority('ADMIN')">
                                     <a th:href="@{/pacientes}"><i class="fa fa-male text-aqua"></i> Pacientes</a>                                

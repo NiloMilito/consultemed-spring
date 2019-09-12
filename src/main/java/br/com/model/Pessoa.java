@@ -3,6 +3,7 @@ package br.com.model;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import lombok.Getter;
@@ -19,6 +20,7 @@ public class Pessoa extends AbstractEntity<Long> {
 	private String nome;
 	
 	@Column(name="email")
+	@Email(message="Endereço de e-mail enviado em um formato inválido.")
 	private String email;
 	
 	@Column(name="cpf", unique=true)
