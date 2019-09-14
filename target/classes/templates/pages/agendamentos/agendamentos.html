@@ -36,7 +36,7 @@
 	   				<div class="col-sm-4">
 	   					<div class="input-group">
 	   						<input class="form-control" placeholder="Qual agendamento você está procurando?"
-	   							autofocus="autofocus" th:field="*{nome}"></input>
+	   							autofocus="autofocus" th:field="*{dataAgendamento}"></input>
 	   						<span class="input-group-btn">
 	   							<button type="submit" class="btn btn-default">
 	   								<i class="glyphicon glyphicon-search"></i>
@@ -52,11 +52,10 @@
 			
 			<table class="table table-striped">
 				<thead>
-					<tr>
-						<th>Nome</th>
+					<tr>					
 						<th>Paciente</th>
 						<th>Médico</th>
-						<th>Data</th>
+						<th>Data do Agendamento</th>
 						<th class="th-acoes">Ações</th>
 					</tr>
 				</thead>
@@ -64,7 +63,7 @@
 				      <tr th:each="c: ${agendamentos}">  
 				        <td th:text="${c.consulta.paciente.nome}"></td>
 						<td th:text="${c.consulta.medico.nome}"></td>	
-						<td th:text="${c.consulta.dataAgendamento}"></td>			        
+						<td th:text="${c.dataAgendamento}"></td>			        
 				        <td>
 				        	<a th:href="@{agendamentos/edit/{id}(id=${c.id})}" type="button" class="btn btn-outline btn-primary">Editar</a>
 				        	<a th:href="@{agendamentos/delete/{id}(id=${c.id})}" type="button" class="btn btn-outline btn-danger">Excluir</a>				        	

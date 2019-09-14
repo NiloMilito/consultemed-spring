@@ -19,12 +19,16 @@
 		</ol>
 		
 		<div class="alert alert-success" th:if="${not #strings.isEmpty(mensagem)}">
-			<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>
+			<button type="button" class="close" data-dismiss="alert">
+				<span aria-hidden="true">&times;</span>
+			</button>
 			<span th:text="${mensagem}"></span>
    		</div>
    		
    		<div class="alert alert-success" th:if="${not #strings.isEmpty(removido)}">
-			<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>
+			<button type="button" class="close" data-dismiss="alert">
+				<span aria-hidden="true">&times;</span>
+			</button>
 			<span th:text="${removido}"></span>
    		</div>
 		
@@ -45,9 +49,8 @@
 	   				</div>
 	   			</div>
 	   		</form>			
-			
-			
-			<br/>
+					
+			<br />
 			
 			<table class="table table-striped">
 				<thead>

@@ -25,7 +25,7 @@ public class MedicoService implements IMedicoService{
 	@Override
 	@Transactional
 	public void alterar(Medico medico) {
-		this.repository.save(medico);
+		this.repository.saveAndFlush(medico);
 	}
 
 	@Override
@@ -40,8 +40,8 @@ public class MedicoService implements IMedicoService{
 	}
 
 	@Override
-	public List<Medico> listar(Medico filtro) {	
-		return this.repository.findAll();
+	public List<Medico> listar(Medico filtro) {			
+		return this.repository.findByNomeContaining(filtro.getNome());
 	}
 	
 	public List<Medico> listar() {	
