@@ -1,4 +1,4 @@
-package br.com.resources;
+package br.com.resources.medicos;
 
 import java.util.List;
 
@@ -17,15 +17,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.interfaces.IMedicoResource;
+import br.com.interfaces.IGenericResource;
+import br.com.interfaces.IMedicoService;
 import br.com.model.Medico;
-import br.com.service.MedicoService;
 @RestController
 @RequestMapping("/api")
-public class MedicoResource implements IMedicoResource<Medico>{
+public class MedicoResource implements IGenericResource<Medico>{
 
 	@Autowired
-	private MedicoService service;
+	private IMedicoService service;
 
 	@Override
 	@PostMapping("/medicos/add")

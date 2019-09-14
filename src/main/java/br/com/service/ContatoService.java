@@ -34,6 +34,11 @@ public class ContatoService {
 	}
 	
 	@Transactional
+	public void edit(Contato contato) {
+		this.repository.saveAndFlush(contato);
+	}
+	
+	@Transactional
 	public void remove(Long id) {
 		this.repository.delete(id);
 	}

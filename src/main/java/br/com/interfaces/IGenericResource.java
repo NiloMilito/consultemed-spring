@@ -6,9 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.http.ResponseEntity;
 
-import br.com.model.Medico;
-
-public interface IMedicoResource <T>{
+public interface IGenericResource <T>{
 	
 	public ResponseEntity<T> add(T object, HttpServletResponse response);
 	
@@ -18,6 +16,6 @@ public interface IMedicoResource <T>{
 	
 	public ResponseEntity<List<T>> list();
 	
-	public Medico get(Long id);
+	public T get(Long id);
 
 }
